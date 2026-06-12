@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*~
+
+# Office lock/temp files (matches ~$something.xlsx, not the real workbook)
+~$*
+
+# NOTE: data/demo.csv and output/*.xlsx are committed on purpose as samples,
+# so there is no blanket *.csv or *.xlsx ignore here.
