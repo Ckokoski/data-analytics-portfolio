@@ -98,29 +98,81 @@ against the seeded DB" is verifiable instantly.
 
 ## Findings
 
->>> CHRISTOPHER: This is the part interviewers care about most — your read of the
-> data, in your own words. Run `python build_database.py` then
-> `python run_queries.py`, look at the outputs, and write the short memo you'd
-> send the marketing team. Prompts to work through (then delete them):
->
-> - **Performance:** From queries 02 and 04 — which campaign was the clear
->   winner, and which was the clear flop? Is the flop weak on *opens* (subject
->   line / timing) or on *CTOR* (content / offer)? Name the lever you'd pull.
-> - **Acquisition quality:** From queries 03, 06, and 13 — which source brings the
->   most engaged subscribers, and which one looks like cheap-but-rotting volume?
->   Would you shift acquisition budget? Which way?
-> - **List health / deliverability:** From queries 10–13 — roughly how much of the
->   list is a sunset candidate at 90 vs. 180 days, and which source contributes
->   the most dead weight? What's your re-engagement-then-suppress plan, and why
->   does trimming the unengaged actually *help* the subscribers who remain?
-> - **Growth:** From queries 07–08 — is the list growing steadily, accelerating,
->   or stalling? Does growth offset the churn you see in the sunset cohort?
-> - **The recommendation:** In 3–4 sentences, what 2–3 actions would you push the
->   marketing team to take next quarter, and what would you measure to know they
->   worked?
-> - **Honesty caveat:** one line noting this is synthetic data, so the *method* is
->   the point — name what you'd want from the real system to confirm it (e.g.
->   bounce/unsubscribe/spam-complaint data this DB doesn't include).
+*This is my read of the included synthetic dataset — the short memo I'd hand a
+marketing manager. Every claim ties to a numbered query above; run
+`python build_database.py` then `python run_queries.py` to reproduce all of it.*
+
+**Headline (Q01).** Across all 12 sends, this list runs a **30.9% open rate, 5.8%
+click rate, and 18.9% CTOR** on 4,773 sends (1,475 opens, 279 clicks). Those are
+the benchmarks I judge everything else against.
+
+**What's working and what isn't (Q02, Q04, Q09).** The clear winner is the
+**Webinar Invite Q1** send — it tops every metric at once: 41.1% open, 12.6% click,
+and a 30.8% CTOR, and it ranks #1 on the click-rate leaderboard. The clear flop is
+the **Re-engagement Nudge** (16.4% open / 1.4% click / 8.5% CTOR), but that one is
+weak *by design* — it's the only send aimed at the lapsed segment, so a low open
+rate is expected, not alarming. The flop I'd actually act on is the **April
+Newsletter**: its open rate is healthy at 32.4% (above the 30.9% average), but its
+**CTOR is the worst of any normal campaign at 8.0%** — roughly 162 people opened it
+and only 13 clicked. That's not a subject-line problem, it's a **content/offer
+problem**: the subject earned the open and then the email failed to convert it. The
+lever there is the creative and the call-to-action, not the send time. The same
+opens-vs-CTOR split separates the rest of the pack — the newsletters cluster low on
+CTOR (March and February both ~12%) while the offer-driven sends (Spring Sale 24.8%,
+Referral Program Push 26.6%) convert opens roughly 2–3x better.
+
+**Acquisition quality (Q03, Q06, Q13).** Source matters a lot here. **Webinar and
+Referral bring the engaged subscribers**: Webinar leads on opens (38.0%), and
+Referral leads on the downstream metrics that pay the bills — 7.24% click rate (the
+only source clearly above the 5.85% list average), a 21.8% CTOR, and **65.0% of its
+subscribers still active**, the best retention of any channel. The cheap-but-rotting
+volume is unmistakably **Paid Social**: despite being a quarter of the list, it
+posts the *worst* number on every axis — 22.8% open, 4.4% click, and only **39.6%
+still active**, meaning roughly 3 in 5 Paid Social signups have already gone cold.
+If this were a live program I'd shift acquisition budget *away* from Paid Social and
+*toward* Referral and Webinar, because those two bring people who keep opening
+instead of inflating the headcount and then rotting.
+
+**List health and the sunset plan (Q10–Q13).** The hygiene problem is real and
+large. **847 subscribers (70.6% of the list) are 90-day sunset candidates** — no
+open or click in the last 90 days — and **590 (49.2%) are 180-day candidates**, a
+figure that exactly matches the 590 flagged `inactive`, which is a good internal
+consistency check. On top of that, **456 subscribers (38.0%) have never opened a
+single email** (296 were mailed and never opened, 160 were never mailed at all).
+**Paid Social contributes the most dead weight at both cutoffs** — 246 of the 847
+at 90 days and 180 of the 590 at 180 days — with Organic second; Referral is the
+cleanest (only 64 at 180 days, and just 2 never-mailed). My plan would be the
+standard two-stage one the queries are built around: at **90 days** (Q10) run a
+re-engagement / win-back send to the early-warning cohort, then at **180 days**
+(Q11) **suppress** whoever is still cold after that last attempt. Trimming them
+isn't just tidiness — mailbox providers grade senders on recipient engagement, so
+continuing to mail hundreds of people who never open **drags down inbox placement
+for the entire list**. Cutting the dead weight is how the engaged subscribers who
+remain keep landing in the inbox at all.
+
+**Growth (Q07, Q08).** The list grows **steadily but flat** — roughly 85–110 new
+signups every month (one bump to 129 in the final month), reaching 1,200 cumulative.
+It is not accelerating. That's the worry when I put it next to the sunset cohort:
+with ~49% of the list already 180-day-cold and only steady-state gross adds, raw
+list size flatters a base that is **quietly rotting underneath**. Growth is keeping
+the topline up, but it is not outrunning the disengagement.
+
+**What I'd recommend next quarter.** (1) **Fix the newsletter, not its subject
+line** — the April Newsletter pattern (good opens, dead clicks) says the issue is
+content/offer, so I'd rework the CTA and creative and measure success as **CTOR
+rising toward the ~25% the offer-driven sends already hit**, not as more opens.
+(2) **Rebalance acquisition** away from Paid Social toward Referral/Webinar, and
+judge each channel on **90-day active rate**, not signup volume — the goal is
+subscribers who are still opening at 90 days, not a bigger number. (3) **Stand up
+the 90/180-day sunset workflow** (Q10 re-engage → Q11 suppress) as a recurring job
+and watch the **list-wide open rate after suppression** — trimming the cold tail
+should *raise* it, which is the deliverability win.
+
+*Caveat: this is clearly-labeled synthetic, seeded data, so the **method** is the
+point, not the specific percentages. To confirm any of this on a real program I'd
+want the signals this DB intentionally doesn't carry — **bounce, unsubscribe, and
+spam-complaint data**, plus actual deliverability/inbox-placement metrics — since
+those, not opens alone, are what truly justify suppressing an address.*
 
 ## How to run
 

@@ -57,13 +57,18 @@ questions in seconds.
 
 ## Findings
 
->>> CHRISTOPHER: Build the `.pbix` by following `BUILD_GUIDE.md`, then write your
-2–4 sentence findings here. Talk about what the dashboard actually shows — e.g.
-the average star rating among rated hospitals, which states or hospital types
-score highest/lowest, how large the "Not Available" (unrated) group is, and
-anything that surprised you. Save your `.pbix` and drop dashboard screenshots
-into the [`images/`](images/) folder, then embed at least one here, like:
-`![Dashboard](images/dashboard.png)`.
+Reading the cleaned CMS data — the questions this dashboard is built to answer — a few things stand out:
+
+- **Two in five hospitals can't be rated at all.** Of 5,432 hospitals, only **3,182 (59%) carry an overall star rating**; the other **41% are "Not Available,"** usually because CMS lacks enough underlying measures. That completeness gap is the first headline: any "average rating" describes a *rated subset*, not the whole country — so the dashboard shows the rated count beside every average and never hides the sample size.
+- **Quality clusters in the middle.** Among rated hospitals the **average is 3.21 stars**, and the distribution is middle-heavy: 3 stars is the largest single group, only **25% of all hospitals (42% of rated) earn 4–5 stars**, and **27% of rated hospitals sit at 1–2 stars**.
+- **Geography matters.** Average rating among rated hospitals ranges from **Utah (4.24), Colorado (3.96), and Wisconsin (3.78)** at the top to **Mississippi (2.33), Alabama (2.71), and Kentucky / West Virginia (~2.76)** at the bottom — about a two-star spread between the best and worst states.
+- **Mostly non-profit, acute-care, ER-equipped.** Voluntary non-profit is the largest ownership group (~43%), acute-care the dominant type (~57%), and **83% offer emergency services** — context worth holding before reading too much into any single slice.
+
+**So what:** "hospital quality" can't be read off one national average. The unrated 41% and the two-star state spread mean the honest analysis leads with *coverage and distribution*, then lets the user slice by state, ownership, and type — which is exactly what the dashboard's slicers are for.
+
+*Data: public CMS "Hospital General Information" (June 2026 refresh); see [`data/README.md`](data/README.md). Figures shift slightly when CMS refreshes the dataset.*
+
+> **Dashboard screenshots coming soon** — the `.pbix` is built in Power BI Desktop from [`BUILD_GUIDE.md`](BUILD_GUIDE.md); images land in [`images/`](images/).
 
 ---
 

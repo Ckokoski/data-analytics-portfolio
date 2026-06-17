@@ -3,8 +3,6 @@
 Hands-on data-analysis projects in **SQL, Power BI, and Python**, built while completing the Google Data Analytics Professional Certificate.
 
 > **About me:** I spent 5 years in marketing technology at a healthcare system, turning campaign and engagement data into decisions with SFMC, GA4, Looker Studio, and Excel. I'm now focused on data-analyst roles — where asking the right question, getting the data honest, and making it legible is the whole job.
->
-> `>>> CHRISTOPHER:` confirm this summary matches how you'd describe yourself, and add your exact current title if you want it stated.
 
 ## Privacy note
 
@@ -21,15 +19,15 @@ The flagship project uses **real** channel data, so the whole repo follows one r
 | Looker Studio | 5 yrs marketing dashboards | Proficient |
 | GA4 | 5 yrs web & campaign analytics | Working |
 
-\* `>>> CHRISTOPHER:` these are conservative placeholders — adjust each to how you'd honestly describe yourself.
+\* Self-ratings reflect current working proficiency; I'm deepening SQL and Power BI through these projects and the Google Data Analytics Certificate.
 
 ## Projects
 
 | # | Project | The value | Status |
 |---|---------|-----------|--------|
-| 01 ⭐ | [YouTube Channel Analytics](01-youtube-channel-analytics/) | An impressions-weighted before/after model measured a creative redesign's lift in **click-through rate** — rates only, channel kept private | ✅ Built · *your findings to add* |
-| 02 | [Email Marketing Analytics (SQL)](02-email-marketing-sql/) | 12–15 business-question SQL queries on engagement data: deliverability, re-engagement, list health | ✅ Built · *your memo to add* |
-| 03 | [Healthcare Quality Dashboard (Power BI)](03-healthcare-quality-powerbi/) | Public CMS hospital-quality data cleaned and modeled for a Power BI dashboard | ✅ Prep built · *your .pbix to add* |
+| 01 ⭐ | [YouTube Channel Analytics](01-youtube-channel-analytics/) | An impressions-weighted before/after model measured a **~96% lift in click-through rate** after a creative redesign — rates only, channel kept private | ✅ |
+| 02 | [Email Marketing Analytics (SQL)](02-email-marketing-sql/) | 14 business-question SQL queries turning engagement logs into deliverability, re-engagement, and list-health recommendations | ✅ |
+| 03 | [Healthcare Quality Dashboard (Power BI)](03-healthcare-quality-powerbi/) | Public CMS hospital-quality data cleaned and modeled, with insights on rating coverage and geography *(dashboard build in progress)* | ✅ |
 
 **Bonus (range pieces — not headliners):** [Excel Pivot Engine](bonus/excel-pivot-engine/) · [Data Quality Toolkit](bonus/data-quality-toolkit/)
 
@@ -44,4 +42,3 @@ Every dataset here is **public** (sourced + licensed) or **clearly-labeled synth
 ## Links
 
 - **MarTech portfolio:** https://github.com/Ckokoski/martech-portfolio
-- **LinkedIn:** `>>> CHRISTOPHER:` add your LinkedIn URL here

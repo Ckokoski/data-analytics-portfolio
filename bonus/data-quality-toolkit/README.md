@@ -72,19 +72,54 @@ See the generated examples:
 
 ## Findings / how I'd use it
 
->>> CHRISTOPHER: This is the part that's yours — connect the tool to how you
-> actually work. Run it, open one of the reports, and write a few sentences in
-> your own words. Prompts to consider (then delete them):
->
-> - In your marketing-tech QA days, what's a data problem like these that *did*
->   slip through once — and what did it cost? Tie this tool back to that story.
-> - When a file lands on your desk, where would you actually drop this in your
->   workflow — before a Power BI load? before a SQL import? as a pre-send check?
-> - The verdict is intentionally conservative (a 5% null column triggers REVIEW).
->   Is that the right bar for the kind of data you work with, or would you move
->   the thresholds at the top of `audit.py`? Say why.
-> - What does this *not* catch that a human still has to — and why is "PASS"
->   deliberately worded as "clear to start," not "certified true"?
+The two demo reports show the two outcomes I built this to separate. Running it on
+`messy_customers.csv` returns **FAIL**: the `phone` column is 83% empty (past the
+50% line), 4 of 23 rows (17%) are exact duplicates so any total would be
+double-counted, `email`/`city`/`signup_date` are 9–13% blank, and four
+`customer_id` values repeat — so the column I'd join on isn't actually unique.
+Running it on `messy_orders.csv` returns **REVIEW**: the keys are clean and nothing
+is missing, but `price` and `quantity` are numeric columns with stray text (`free`,
+`TBD`, `two`), and the `--rules` check catches a negative quantity, a 150% discount,
+and a `999999.99` price typo. That split is the whole point — one file I should not
+build anything on yet, one I can use once I've eyeballed a handful of known cells.
+
+That distinction is exactly the "fit for analysis?" gate I want before any real
+work. The expensive mistake isn't a wrong chart — it's a *confident* chart built on
+a file that was never clean: revenue inflated by duplicate rows, an average dragged
+to zero because one cell said "free," a segment join silently fanned out by a
+repeated ID. Those don't announce themselves in the final dashboard; they look like
+real numbers. This is the same failure mode I spent five years guarding against in
+marketing-tech QA — a broken merge field or bad link that passes a quick glance and
+only shows up after it's in front of an audience. The fix is the same too: a
+repeatable first-pass check that runs *before* anyone trusts the data, so the
+go/no-go call is consistent instead of a gut feel that changes person to person.
+
+Where I'd drop it: the moment a CSV lands and before it touches anything downstream
+— before a Power BI/Excel load, before a SQL import, before I write the first
+`GROUP BY`. Because the exit code mirrors the verdict (`0` PASS / `1` REVIEW / `3`
+FAIL), the same command can gate an automated pipeline, not just my own desk — a
+FAIL stops the load instead of quietly feeding a refresh. I'd treat **REVIEW** as
+"open the report and clear each flag by hand" and **FAIL** as "fix the source, then
+re-run."
+
+On the thresholds: I think the conservative defaults are right for this *as a
+gate*, and I'd keep them as the starting point rather than soften them. A 5% null
+column (`NULL_RATE_REVIEW`) earning REVIEW is a feature — I'd rather be told and
+dismiss it than miss it. The one knob I'd actually tune per dataset is the
+out-of-range rules, since "valid" is domain-specific (a 150% discount is nonsense
+for orders but a legitimate value could look extreme elsewhere) — and those already
+live outside the code in a JSON `--rules` file for exactly that reason. If I were
+running this against a source that's blank-by-design (optional survey fields, say),
+I'd raise `NULL_RATE_REVIEW` at the top of `audit.py` and note why, rather than
+train myself to ignore a flag.
+
+What it deliberately does *not* do is judge whether the numbers are *true*. It
+catches the mechanical problems — blanks, dupes, wrong types, out-of-range — but it
+can't know that a correctly-formatted revenue figure is off by a decimal, or that a
+plausible date is the wrong one. That's why **PASS** is worded "clear to start," not
+"certified": it clears the data to be *analyzed*, and the analyst still owns whether
+the result is right. Drawing that line honestly is the point — the tool removes the
+dumb reasons an analysis fails so a human can focus on the real ones.
 
 ## How to run
 

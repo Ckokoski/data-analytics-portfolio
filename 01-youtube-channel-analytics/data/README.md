@@ -38,4 +38,4 @@ python import_to_sqlite.py                                              # synthe
 python import_to_sqlite.py data/private/your_export.csv --change-date 2025-10-01
 ```
 
-`--change-date` is the day your before/after split begins. `>>> CHRISTOPHER:` set this to your actual change date.
+`--change-date` is the day your before/after split begins — set it to your real change date when you run it on your own export.

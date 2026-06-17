@@ -6,18 +6,20 @@
 
 ## YouTube before/after — REAL numbers (private)
 
-- Change date (thumbnail/title shift): `>>> CHRISTOPHER`
-- Window analyzed (months): `>>> CHRISTOPHER`
+- Change date (thumbnail/title shift): _________
+- Window analyzed (months): _________
 - Before weighted CTR: ____ %  |  After weighted CTR: ____ %  |  Lift: ____ %
 - Before avg views/video: ____  |  After avg views/video: ____  (≈ ____×)
 - Total impressions (window): ____  |  Total views: ____  |  Subscribers gained: ____
-- Viral outlier(s) and how handled: `>>> CHRISTOPHER`
-- Upload volume, before vs after: `>>> CHRISTOPHER`
+- Viral outlier(s) and how handled: _________
+- Upload volume, before vs after: _________
 
 ## How I'd say it out loud
 
-`>>> CHRISTOPHER:` 2–3 sentences that pair the **rate story** (what you say in public — "~2× CTR,
-~3× views per video") with the **absolute scale** (what you reveal only here, in the room).
+Two or three sentences that pair the **rate story** (what you say in public — "~2× CTR,
+~3× views per video") with the **absolute scale** (what you reveal only here, in the room):
+
+_________________________________________________________________
 
 ---
 

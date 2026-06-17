@@ -4,7 +4,7 @@
 
 ![Weighted CTR before vs after — Power BI](images/powerbi-weighted-ctr-before-after.png)
 
-`>>> CHRISTOPHER:` confirm this is the screenshot you want public (verified privacy-safe — it shows rates only). Swap it any time.
+*Power BI dashboard (rates only): impressions-weighted CTR roughly doubled after a thumbnail/title change.*
 
 ## Problem
 
@@ -20,7 +20,7 @@ YouTube's headline CTR is a simple average — it treats a video shown 200 times
 2. **Query** ([`queries/`](queries/)) — 11 commented SQL files. The core idea is **impressions-weighted CTR**: `SUM(impressions × ctr) / SUM(impressions)`, so heavily-shown videos count proportionally. Views and subscribers are reported as **indexes (Before = 100)**, so the relative lift shows without any raw count.
 3. **Chart** ([`analysis.ipynb`](analysis.ipynb)) — matplotlib charts of CTR %, the monthly trend, and the views index. Percentages only.
 
-On the synthetic sample, weighted CTR runs ~3.2% → ~6.1% — that just *illustrates the method*; your real figures are yours to report, in rate terms.
+On the bundled synthetic sample, weighted CTR runs ~3.2% → ~6.1% — that just *illustrates the method* so the code runs out of the box. The real result is in **Findings** below, in rate terms.
 
 ### Charts (generated from the synthetic sample)
 
@@ -30,14 +30,16 @@ On the synthetic sample, weighted CTR runs ~3.2% → ~6.1% — that just *illust
 
 ## Findings
 
-`>>> CHRISTOPHER:` Run it on your real export and write your read here, **in rate terms only** (e.g. "weighted CTR roughly doubled; ~3× views per video"). Address the honest confounds so it reads like analysis, not a brag:
+After I changed my thumbnail-and-title approach, **impressions-weighted CTR roughly doubled — from about 3.5% to about 6.9%, a ~96% lift** (the headline from my Power BI model, shown in rates only with the channel kept private). The weighting matters: a plain average would let a few low-reach videos distort the picture, whereas weighting by impressions reflects what audiences actually did across the videos that were shown most.
 
-> - the before/after split was **data-detected**, not pre-registered
-> - one **viral outlier** can swing averages — note how you handled it
-> - **upload volume** changed across the window
-> - an **AI-launch seasonality** bump landed around the same time
->
-> Keep absolute numbers OUT of this file — they go in your private one-pager.
+I treat this as a strong signal, not a clean experiment, and I'd flag the confounds honestly in any conversation about it:
+
+- the before/after split was **data-detected** (I found the inflection point in the data), not pre-registered — so the split date is itself part of the finding;
+- a **viral outlier** can pull averages up; impressions-weighting tempers that, but it's worth isolating;
+- my **upload volume** changed across the window, which shifts how much each period contributes;
+- an **AI-launch seasonality** bump landed around the same time and may share the credit.
+
+Net: the packaging change plausibly drove a meaningful CTR improvement, and the impressions-weighted model is the honest way to size it. Absolute view, impression, and subscriber counts stay in a private one-pager — this repo is rates-only by design.
 
 ## How to run
 
@@ -48,8 +50,8 @@ python run_queries.py          # prints all 11 query results (rates only)
 # optional notebook (needs jupyter): pip install -r requirements-dev.txt && jupyter notebook analysis.ipynb
 ```
 
-## Privacy checklist (before you ever push)
+## Privacy guardrails (enforced)
 
-- [ ] No raw views / impressions / subscriber counts in any committed file or screenshot
-- [ ] Real exports live only in `data/private/` (git-ignored)
-- [ ] Absolute numbers only in your git-ignored private one-pager
+- **No raw views / impressions / subscriber counts** appear in any committed file or screenshot — every query and chart outputs rates, percentages, or indexes (Before = 100).
+- A test ([`tests/test_pipeline.py`](tests/test_pipeline.py)) **fails the build if any query ever returns a raw-count column**.
+- Real exports live only in `data/private/` (git-ignored); absolute numbers live only in a git-ignored private one-pager.

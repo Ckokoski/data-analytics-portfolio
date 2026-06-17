@@ -248,8 +248,5 @@ done. Take a screenshot for the README and write up what you see.
 
 ## What to do next
 1. Save your `.pbix` and screenshot the dashboard (see `images/README.md`).
-2. Open the project `README.md` and fill in the **Findings** section
-   (look for the `>>> CHRISTOPHER` placeholder) with 2–4 sentences on what the
-   ratings reveal — e.g. which states or hospital types score highest, how big
-   the unrated group is, anything surprising.
+2. Add the screenshot to the project `README.md` — the **Findings** section already summarizes the data; drop your dashboard image in alongside it.
 3. Use `TALKING_POINTS.md` to rehearse explaining the project in 2 minutes.

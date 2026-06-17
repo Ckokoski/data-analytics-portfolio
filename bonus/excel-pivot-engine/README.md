@@ -47,21 +47,27 @@ The calculation functions are pure and unit-tested (`tests/`); the Excel formatt
 
 ## Findings
 
->>> CHRISTOPHER: Run the engine, open `output/campaign_summary.xlsx`, and write your read of the data here — in your own words. Prompts to consider (then delete them):
->
-> - Which channel is underwater (ROAS < 1), and which is the most efficient?
-> - Which segment converts best, and by roughly how much versus the others?
-> - If a marketing team handed you this, what 2–3 actions would you recommend, and why?
-> - What would you investigate next that this summary doesn't answer?
+My read of the included synthetic campaign dataset (6 months, 1,571 rows; ~$334K spend, ~$636K revenue, **overall ROAS 1.91**):
+
+- **Display is the only channel underwater.** Its ROAS is **0.81** — it consumes ~22% of the spend and a striking 58% of all impressions, yet returns just $60.4K on $74.5K, a roughly **$14K net loss**. It's the classic cheap-but-low-intent pattern: tons of cheap impressions, a thin 0.4% CTR, and the worst conversion rate of any channel.
+- **Email is the most efficient by a wide margin — ROAS 3.60**, on a relatively small $48K budget, with the lowest CPA ($30). Paid Search (ROAS 2.27) is the workhorse: it carries the largest spend ($124K) and the most conversions while still returning well over 2x.
+- **VIP is the standout segment.** It converts at **2.25%**, versus 1.23% Returning, 0.84% New, and 0.49% Dormant — roughly **1.8x Returning, 2.7x New, and 4.6x Dormant** (about 2.6x the average of the non-VIP segments). VIP also carries a much higher revenue-per-conversion (~$151), so its segment ROAS is ~5.0. The single best channel × segment combo is **Email × VIP at ROAS 9.5**; the worst combos are Display × Dormant (0.17) and Social × Dormant (0.20).
+- **The trend is stable, not growing**, then ticks up at the end: monthly revenue bounces in a tight ~$97K–$112K band January through May before the strongest month, June, at $117K (**+13.4% MoM**, ROAS up to 2.18).
+
+**What I'd recommend:** (1) **Cut or rework Display** — at sub-1.0 ROAS it's the only line actively losing money, so the fastest win is to pause it (or test a higher-intent placement/creative) and **redeploy that budget toward Email and the VIP segment**, which clear 3.6x and ~5x respectively. (2) **Lean harder into VIP and Returning** and pull spend off Dormant, where every channel combination is underwater. (3) Treat Paid Search as the dependable core to protect while experimenting elsewhere.
+
+**What I'd check next** (this summary doesn't answer it): whether Display is truly worthless or just **mis-attributed** — view-through/assisted conversions could be landing in other channels, so I'd want a multi-touch attribution view before fully killing it. I'd also segment by *channel × segment over time* to see whether VIP's edge is steady or seasonal, and look at per-conversion economics net of CPA, not just ROAS.
+
+*Caveat: this dataset is **synthetic** and seeded — the patterns are by design, so the point of the piece is the tool and the method, not these specific numbers.*
 
 ## Screenshots
 
->>> CHRISTOPHER: add two images once you've run it:
->
-> - **before** — the raw `data/demo.csv` open in Excel (wide, unformatted)
-> - **after** — the generated `output/campaign_summary.xlsx` KPI Summary sheet
->
-> Put them in an `images/` folder and embed them here: `![before](images/before.png)` and `![after](images/after.png)`.
+The transformation is easiest to see side by side:
+
+- **Before** — the raw `data/demo.csv`: 1,571 unformatted rows, one per channel × segment × day, with no totals, no ratios, and no highlighting.
+- **After** — the generated `output/campaign_summary.xlsx`: a one-page **KPI Summary** sheet (headline numbers plus the metric-definition block) and four breakdown sheets, with ROAS cells shaded green (≥ 1.0) or red (< 1.0).
+
+To reproduce both, run the two commands in [How to run](#how-to-run) and open the input CSV and the output workbook in Excel. Drop the two screenshots into an `images/` folder to embed them here as `![before](images/before.png)` and `![after](images/after.png)`.
 
 ## How to run
 
