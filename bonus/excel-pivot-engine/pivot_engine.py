@@ -189,8 +189,11 @@ _HEADER_FONT = Font(bold=True, color="FFFFFF")
 _TITLE_FONT = Font(bold=True, size=14)
 _BOLD = Font(bold=True)
 _NOTE_FONT = Font(italic=True, color="808080")
-_GREEN_FILL = PatternFill("solid", fgColor="C6EFCE")
-_RED_FILL = PatternFill("solid", fgColor="FFC7CE")
+# NOTE: Excel renders CONDITIONAL-formatting fills from bgColor (unlike normal cell
+# fills, which use fgColor), so set both via start_color/end_color or the rule shows
+# no color at all.
+_GREEN_FILL = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")
+_RED_FILL = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
 _CENTER = Alignment(horizontal="center")
 
 
