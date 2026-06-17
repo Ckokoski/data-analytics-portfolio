@@ -14,5 +14,15 @@ Thumbs.db
 # Office lock/temp files (matches ~$something.xlsx, not the real workbook)
 ~$*
 
-# NOTE: data/demo.csv and output/*.xlsx are committed on purpose as samples,
-# so there is no blanket *.csv or *.xlsx ignore here.
+# Build artifacts that regenerate from committed code — keep them out of git:
+*.db
+
+# Committed-on-purpose samples (so there is NO blanket csv/xlsx ignore):
+#   bonus/excel-pivot-engine/data/demo.csv + output/campaign_summary.xlsx
+#   01-youtube-channel-analytics/data/sample_synthetic.csv
+
+# --- PRIVACY: never commit real audience data or absolute numbers ---
+01-youtube-channel-analytics/data/private/
+PRIVATE_interview_onepager.md
+PRIVATE_interview_onepager.pdf
+*_FILLED.*
