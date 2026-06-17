@@ -31,7 +31,7 @@ The flagship project uses **real** channel data, so the whole repo follows one r
 | 02 | [Email Marketing Analytics (SQL)](02-email-marketing-sql/) | 12–15 business-question SQL queries on engagement data: deliverability, re-engagement, list health | ✅ Built · *your memo to add* |
 | 03 | [Healthcare Quality Dashboard (Power BI)](03-healthcare-quality-powerbi/) | Public CMS hospital-quality data cleaned and modeled for a Power BI dashboard | ✅ Prep built · *your .pbix to add* |
 
-**Bonus (range pieces — not headliners):** [Excel Pivot Engine](bonus/excel-pivot-engine/) · Data Quality Toolkit *(coming soon)*
+**Bonus (range pieces — not headliners):** [Excel Pivot Engine](bonus/excel-pivot-engine/) · [Data Quality Toolkit](bonus/data-quality-toolkit/)
 
 ![Flagship — weighted CTR before vs after (rates only)](01-youtube-channel-analytics/images/powerbi-weighted-ctr-before-after.png)
 

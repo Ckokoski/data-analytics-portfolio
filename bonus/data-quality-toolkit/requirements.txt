@@ -1,0 +1,4 @@
+# Runtime dependency for the Data-Quality Audit tool.
+# pandas does the heavy lifting of reading the CSV into a table and
+# answering the per-column questions (null rates, duplicates, types).
+pandas>=2.0

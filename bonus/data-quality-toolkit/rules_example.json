@@ -1,0 +1,5 @@
+{
+  "price": { "min": 0.01, "max": 10000 },
+  "quantity": { "min": 1, "max": 100 },
+  "discount_pct": { "min": 0, "max": 100 }
+}

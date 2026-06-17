@@ -1,0 +1,24 @@
+customer_id,name,email,phone,city,signup_date
+C001,Ben Testers,ben1@example.com,555-0101,Springfield,2024-01-24
+C002,Cora Mockton,cora2@example.com,555-0102,Mockville,2024-02-08
+C003,Dev Placeholder,,555-0103,Faketown,2024-06-04
+C004,Edie Faux,edie4@example.com,,,2024-01-19
+C005,Finn Dummy,finn5@example.com,,Testburg,2024-01-01
+C006,Gail Stubbs,,,Springfield,2024-02-08
+C007,Hank Example,hank7@example.com,,Sampleton,2024-05-01
+C008,Ivy Synthetic,ivy8@example.com,,Sampleton,N/A
+C009,Jules Fixture,jules9@example.com,,Sampleton,2024-04-08
+C010,Kira Notreal,,,Testburg,2024-05-09
+C011,Leo Demoman,leo11@example.com,,Springfield,2024-02-23
+C012,Ada Sample,ada12@example.com,,Testburg,2024-03-09
+C013,Ben Testers,ben13@example.com,,Faketown,n/a
+C014,Cora Mockton,cora14@example.com,,Mockville,2024-01-03
+C015,Dev Placeholder,dev15@example.com,,Testburg,2024-01-12
+C016,Edie Faux,edie16@example.com,,,2024-05-09
+C017,Finn Dummy,finn17@example.com,,Springfield,2024-06-15
+C018,Gail Stubbs,gail18@example.com,,Sampleton,2024-01-13
+C001,Ben Testers,ben1@example.com,555-0101,Springfield,2024-01-24
+C005,Finn Dummy,finn5@example.com,,Testburg,2024-01-01
+C009,Jules Fixture,jules9@example.com,,Sampleton,2024-04-08
+C009,Jules Fixture,jules9@example.com,,Sampleton,2024-04-08
+C003,Mara Conflict,mara@example.com,,Faketown,2024-07-01
