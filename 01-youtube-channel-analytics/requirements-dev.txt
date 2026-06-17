@@ -1,0 +1,4 @@
+# Dependencies for the notebook and tests (includes runtime deps).
+-r requirements.txt
+jupyter>=1.0
+pytest>=8.0
