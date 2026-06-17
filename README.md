@@ -41,4 +41,5 @@ Every dataset here is **public** (sourced + licensed) or **clearly-labeled synth
 
 ## Links
 
+- **LinkedIn:** https://www.linkedin.com/in/christopher-kokoski-9542441b6/
 - **MarTech portfolio:** https://github.com/Ckokoski/martech-portfolio
