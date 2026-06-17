@@ -1,0 +1,10 @@
+# Python dependencies for prep_data.py
+# Install with:  pip install -r requirements.txt
+#
+# Only pandas is required. The download uses the Python standard library
+# (urllib), so the `requests` package is NOT needed.
+
+pandas>=2.0
+
+# requests is intentionally optional / not used — urllib (stdlib) handles the
+# download so the script runs from a fresh clone with nothing but pandas.
