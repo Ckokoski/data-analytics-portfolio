@@ -1,0 +1,10 @@
+# Runtime dependencies for the Email Marketing SQL project.
+#
+# sqlite3 is part of the Python standard library, so there is nothing to
+# install for the database itself or for run_queries.py.
+#
+# The only third-party package the code imports is numpy, which build_database.py
+# uses for the seeded random-number generator that draws the synthetic events.
+# (numpy ships as a dependency of pandas, so it is already present in this
+# portfolio's environment.)
+numpy>=1.24
