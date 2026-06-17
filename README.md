@@ -35,9 +35,9 @@ The flagship project uses **real** channel data, so the whole repo follows one r
 
 ## How this portfolio was built
 
-Built with an **AI-assisted development workflow.** I directed the architecture and own every analytical decision, interpretation, and finding; AI handled scaffolding, boilerplate, and first-draft documentation. Directing AI to do real, accountable work is the skill set I spent five years building in marketing technology — so I show it openly rather than hiding it.
+Built with an **AI-assisted development workflow** — the same human-directs-AI approach I spent five years building in marketing technology, shown openly rather than hidden. I set the direction, the analytical questions, and the privacy rules, and I stand behind the conclusions; AI did the heavy lifting on scaffolding, code, documentation, and first-draft analysis that I review and own.
 
-Every dataset here is **public** (sourced + licensed) or **clearly-labeled synthetic**, except the flagship's **real** YouTube data — which is presented in rates only, with the channel kept private. Nothing claims work I didn't do.
+Every dataset here is **public** (sourced + licensed) or **clearly-labeled synthetic**, except the flagship's **real** YouTube data — presented in rates only, channel kept private. The flagship's ~96% CTR-lift headline is my own prior Power BI analysis; the synthetic and public-data write-ups are worked analyses of the included demo / open data, not real-world client results.
 
 ## Links
 
