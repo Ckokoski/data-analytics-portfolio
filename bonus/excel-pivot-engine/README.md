@@ -1,8 +1,8 @@
-# 01 — Excel Pivot Automation Engine
+# Bonus — Excel Pivot Automation Engine
 
 > Turn a raw multi-channel campaign CSV into a formatted, multi-sheet Excel report in seconds. **Python + pandas + openpyxl.**
 
-**Self-directed portfolio project.** The demo data is synthetic and labeled as such.
+**Bonus / range piece** — a small Python tooling project, not one of the portfolio's core analyst headliners (see the [main README](../../README.md)). **Self-directed; the demo data is synthetic and labeled as such.**
 
 ## Problem
 
@@ -66,7 +66,7 @@ The calculation functions are pure and unit-tested (`tests/`); the Excel formatt
 ## How to run
 
 ```bash
-# from this folder (01-excel-pivot-engine/)
+# from this folder (bonus/excel-pivot-engine/)
 pip install -r requirements.txt
 python generate_demo_data.py             # writes data/demo.csv (already committed)
 python pivot_engine.py data/demo.csv     # writes output/campaign_summary.xlsx
