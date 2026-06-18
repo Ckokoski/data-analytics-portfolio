@@ -42,11 +42,11 @@ Three tables:
 subscribers (1) ───< engagement >─── (1) sends
 ```
 
-It is **not real** — every address, campaign, and event is randomly generated
+Every address, campaign, and event is randomly generated
 with a fixed seed, shaped to behave realistically so there's something genuine to
 analyze. Two patterns are intentionally built in: some acquisition sources are
 more engaged than others, and long-dormant subscribers form a believable
-inactive cohort. The headline rates are never written directly — they **emerge**
+inactive cohort. The headline rates are never written directly. They **emerge**
 from individual 0/1 events when you aggregate. One rule is enforced in the data:
 **a click implies an open** (you can't click an email you never opened), so
 **CTOR = clicks / opens** is always valid.
@@ -55,15 +55,15 @@ from individual 0/1 events when you aggregate. One rule is enforced in the data:
 
 [`queries/`](queries/) holds **14 numbered, commented SQL files**. Every file
 opens with a header stating the **business question** it answers and defining any
-metric it uses. They stay at a deliberately readable level — `SELECT` / `WHERE` /
-`GROUP BY` + aggregates / `HAVING` / `INNER JOIN` / `LEFT JOIN` / subqueries —
+metric it uses. They stay at a deliberately readable level: `SELECT` / `WHERE` /
+`GROUP BY` + aggregates / `HAVING` / `INNER JOIN` / `LEFT JOIN` / subqueries 
 with exactly **two** clearly-flagged window-function "stretch" examples.
 
 **Metric definitions used throughout:**
 
 - **Open rate** = opens / emails sent
 - **Click rate** = clicks / emails sent
-- **CTOR** (click-to-open rate) = clicks / opens — of the people who opened, how
+- **CTOR** (click-to-open rate) = clicks / opens - of the people who opened, how
   many clicked; a signal of creative/offer quality, independent of the subject
   line that mostly drives opens
 - **Sunset candidate** = a subscriber with no opens **and** no clicks in the last
@@ -98,7 +98,7 @@ against the seeded DB" is verifiable instantly.
 
 ## Findings
 
-*This is my read of the included synthetic dataset — the short memo I'd hand a
+*This is my read of the included synthetic dataset. The short memo I'd hand a
 marketing manager. Every claim ties to a numbered query above; run
 `python build_database.py` then `python run_queries.py` to reproduce all of it.*
 
