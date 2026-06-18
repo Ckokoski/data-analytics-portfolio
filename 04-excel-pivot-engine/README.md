@@ -60,14 +60,11 @@ My read of the included synthetic campaign dataset (6 months, 1,571 rows; ~$334K
 
 *Caveat: this dataset is **synthetic** and seeded — the patterns are by design, so the point of the piece is the tool and the method, not these specific numbers.*
 
-## Screenshots
+## Screenshot
 
-The transformation is easiest to see side by side:
+The engine's **Revenue & ROAS by Channel** sheet — ROAS shaded **green** (≥ 1.0, profitable) or **red** (< 1.0, underwater), so the underperformer pops instantly. Generated straight from the raw `data/demo.csv` by the commands below — no manual formatting.
 
-- **Before** — the raw `data/demo.csv`: 1,571 unformatted rows, one per channel × segment × day, with no totals, no ratios, and no highlighting.
-- **After** — the generated `output/campaign_summary.xlsx`: a one-page **KPI Summary** sheet (headline numbers plus the metric-definition block) and four breakdown sheets, with ROAS cells shaded green (≥ 1.0) or red (< 1.0).
-
-To reproduce both, run the two commands in [How to run](#how-to-run) and open the input CSV and the output workbook in Excel. Drop the two screenshots into an `images/` folder to embed them here as `![before](images/before.png)` and `![after](images/after.png)`.
+![Revenue & ROAS by channel — formatted Excel output](images/roas-by-channel.png)
 
 ## How to run
 
