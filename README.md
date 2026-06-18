@@ -1,6 +1,6 @@
 # Data Analytics Portfolio — Christopher Kokoski
 
-Hands-on data-analysis projects in **SQL, Power BI, and Python**, built while completing the Google Data Analytics Professional Certificate.
+Hands-on data-analysis projects in **SQL, Power BI, and Python**.....
 
 > **About me:** I spent 5 years in marketing technology at a healthcare system, turning campaign and engagement data into decisions with SFMC, GA4, Looker Studio, and Excel. I'm now focused on data-analyst roles — where asking the right question, getting the data honest, and making it legible is the whole job.
 
