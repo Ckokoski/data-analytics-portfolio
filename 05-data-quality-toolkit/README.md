@@ -1,4 +1,4 @@
-# Bonus — Data-Quality Audit Toolkit
+# Data-Quality Audit Toolkit
 
 > Point it at **any** CSV. It runs a data-quality checklist and writes a
 > plain-language report a non-technical manager can read, ending in one verdict:
