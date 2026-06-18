@@ -72,7 +72,7 @@ To reproduce both, run the two commands in [How to run](#how-to-run) and open th
 ## How to run
 
 ```bash
-# from this folder (bonus/excel-pivot-engine/)
+# from this folder (04-excel-pivot-engine/)
 pip install -r requirements.txt
 python generate_demo_data.py             # writes data/demo.csv (already committed)
 python pivot_engine.py data/demo.csv     # writes output/campaign_summary.xlsx

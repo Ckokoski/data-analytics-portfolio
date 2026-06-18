@@ -124,7 +124,7 @@ dumb reasons an analysis fails so a human can focus on the real ones.
 ## How to run
 
 ```bash
-# from this folder (bonus/data-quality-toolkit/)
+# from this folder (05-data-quality-toolkit/)
 pip install -r requirements.txt
 
 # (the demo CSVs are already committed; regenerate them only if you want to)

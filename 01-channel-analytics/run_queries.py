@@ -2,7 +2,7 @@
 run_queries.py
 ==============
 
-Run every .sql file in `queries/` against `data/youtube.db` and print the results,
+Run every .sql file in `queries/` against `data/channel.db` and print the results,
 so you can verify the whole pipeline end-to-end with one command.
 
 PRIVACY: every query here returns rates, percentages, or indexes only — never raw
@@ -14,7 +14,7 @@ from pathlib import Path
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
-DB = HERE / "data" / "youtube.db"
+DB = HERE / "data" / "channel.db"
 QUERIES = HERE / "queries"
 
 

@@ -2,12 +2,12 @@
 import_to_sqlite.py
 ====================
 
-Load a YouTube Studio per-video CSV export into a local SQLite database, tagging
+Load a channel-analytics per-video CSV export into a local SQLite database, tagging
 each video as "Before" or "After" a content-change date (e.g. the day you started
 new thumbnails/titles).
 
 PRIVACY (read this):
-    This script runs LOCALLY. Your REAL YouTube Studio exports belong in
+    This script runs LOCALLY. Your REAL channel-analytics exports belong in
     `data/private/` which is git-ignored — they never get committed or leave your
     machine. The only data committed to this repo is `data/sample_synthetic.csv`,
     which is fabricated for demonstration. Every query and chart in this project
@@ -27,10 +27,10 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_CSV = HERE / "data" / "sample_synthetic.csv"
-DEFAULT_DB = HERE / "data" / "youtube.db"
+DEFAULT_DB = HERE / "data" / "channel.db"
 DEFAULT_CHANGE_DATE = "2025-10-01"
 
-# Columns we expect from a YouTube Studio per-video export (renamed for clarity).
+# Columns we expect from a channel-analytics per-video export (renamed for clarity).
 EXPECTED_COLUMNS = [
     "video_title", "publish_date", "impressions", "ctr_percent",
     "views", "avg_percent_viewed", "subscribers_gained",
@@ -60,7 +60,7 @@ def load(csv_path: Path, db_path: Path, change_date: str) -> pd.DataFrame:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Import a YouTube Studio CSV into SQLite.")
+    parser = argparse.ArgumentParser(description="Import a channel-analytics CSV into SQLite.")
     parser.add_argument("csv", nargs="?", type=Path, default=DEFAULT_CSV,
                         help=f"input CSV (default: {DEFAULT_CSV.name})")
     parser.add_argument("-o", "--db", type=Path, default=DEFAULT_DB,

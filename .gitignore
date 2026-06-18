@@ -11,18 +11,18 @@ venv/
 Thumbs.db
 *~
 
-# Office lock/temp files (matches ~$something.xlsx, not the real workbook)
+# Office lock/temp files (matches ~$something.xlsx)
 ~$*
 
-# Build artifacts that regenerate from committed code — keep them out of git:
+# Build artifacts that regenerate from committed code:
 *.db
+04-excel-pivot-engine/output/*.xlsx
 
-# Committed-on-purpose samples (so there is NO blanket csv/xlsx ignore):
-#   bonus/excel-pivot-engine/data/demo.csv + output/campaign_summary.xlsx
-#   01-youtube-channel-analytics/data/sample_synthetic.csv
+# Interview-prep talking points — kept local, not part of the public portfolio
+TALKING_POINTS.md
 
-# --- PRIVACY: never commit real audience data or absolute numbers ---
-01-youtube-channel-analytics/data/private/
+# --- PRIVACY: never commit real audience data ---
+01-channel-analytics/data/private/
 PRIVATE_interview_onepager.md
 PRIVATE_interview_onepager.pdf
 *_FILLED.*

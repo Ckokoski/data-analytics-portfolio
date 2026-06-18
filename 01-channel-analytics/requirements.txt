@@ -1,4 +1,4 @@
-# Runtime dependencies for the YouTube analytics pipeline.
+# Runtime dependencies for the channel analytics pipeline.
 # (sqlite3 is part of the Python standard library — nothing to install.)
 pandas>=2.0
 matplotlib>=3.7

@@ -1,4 +1,4 @@
-"""Smoke test + privacy guard for the YouTube pipeline.
+"""Smoke test + privacy guard for the channel-analytics pipeline.
 
 1. The import + every query runs on the synthetic sample with no error.
 2. No query OUTPUT exposes a raw-count column (views / impressions / subscribers) —
@@ -16,7 +16,7 @@ RAW_COUNT_COLUMNS = {"views", "impressions", "subscribers_gained", "subscribers"
 
 
 def test_pipeline_runs_and_outputs_are_rates_only(tmp_path):
-    db = tmp_path / "youtube.db"
+    db = tmp_path / "channel.db"
     subprocess.run(
         [sys.executable, str(ROOT / "import_to_sqlite.py"), "-o", str(db)],
         check=True,

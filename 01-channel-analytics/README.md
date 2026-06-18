@@ -1,6 +1,6 @@
-# 01 — YouTube Channel Analytics ⭐ (flagship)
+# 01 — Content Channel Analytics
 
-> A self-directed before/after analysis of **real YouTube channel performance data** (the specific channel is kept private). It measures the impact of a thumbnail/title change on click-through rate using an **impressions-weighted CTR** model in SQL + Power BI. **Rates and percentages only. No raw audience numbers appear anywhere in this repo.**
+> A self-directed before/after analysis of **a content channel's real performance data**. It measures the impact of a thumbnail/title change on click-through rate using an **impressions-weighted CTR** model in SQL + Power BI. **Rates and percentages only. No raw audience numbers appear anywhere in this repo.**
 
 ![Weighted CTR before vs after — Power BI](images/powerbi-weighted-ctr-before-after.png)
 
@@ -8,11 +8,11 @@
 
 ## Problem
 
-YouTube's headline CTR is a simple average. It treats a video shown 200 times the same as one shown 200,000. After changing my thumbnail/title approach, I wanted an honest read on whether click-through rate *actually* improved, weighting each video by how often it was shown and accounting for the obvious confounds.
+A channel's headline CTR is a simple average. It treats a video shown 200 times the same as one shown 200,000. After changing my thumbnail/title approach, I wanted an honest read on whether click-through rate *actually* improved, weighting each video by how often it was shown and accounting for the obvious confounds.
 
 ## Data
 
-**Real** YouTube Studio per-video exports (raw exports git-ignored in `data/private/`). A tiny **synthetic** sample ([`data/sample_synthetic.csv`](data/sample_synthetic.csv), clearly labeled) ships so the pipeline runs out of the box. See [`data/README.md`](data/README.md) for the export steps and the privacy rules.
+**Real** per-video analytics exports (raw exports git-ignored in `data/private/`). A tiny **synthetic** sample ([`data/sample_synthetic.csv`](data/sample_synthetic.csv), clearly labeled) ships so the pipeline runs out of the box. See [`data/README.md`](data/README.md) for the export steps and the privacy rules.
 
 ## Method
 
@@ -30,7 +30,7 @@ On the bundled synthetic sample, weighted CTR runs ~3.2% → ~6.1% — that just
 
 ## Findings
 
-After I changed my thumbnail-and-title approach, **impressions-weighted CTR roughly doubled — from about 3.5% to about 6.9%, a ~96% lift** (the headline from my Power BI model, shown in rates only with the channel kept private). The weighting matters: a plain average would let a few low-reach videos distort the picture, whereas weighting by impressions reflects what audiences actually did across the videos that were shown most.
+After I changed my thumbnail-and-title approach, **impressions-weighted CTR roughly doubled — from about 3.5% to about 6.9%, a ~96% lift** (the headline from my Power BI model, reported in rates only). The weighting matters: a plain average would let a few low-reach videos distort the picture, whereas weighting by impressions reflects what audiences actually did across the videos that were shown most.
 
 I treat this as a strong signal, not a clean experiment, and I'd flag the confounds honestly when presenting it to leadership or stakeholders:
 
@@ -39,13 +39,13 @@ I treat this as a strong signal, not a clean experiment, and I'd flag the confou
 - my **upload volume** changed across the window, which shifts how much each period contributes;
 - an **AI-launch seasonality** bump landed around the same time and may share the credit.
 
-Net: the packaging change plausibly drove a meaningful CTR improvement, and the impressions-weighted model is the honest way to size it. Absolute view, impression, and subscriber counts stay private by design. This repo is rates-only by design.
+Net: the packaging change plausibly drove a meaningful CTR improvement, and the impressions-weighted model is the honest way to size it. Raw view, impression, and subscriber counts are kept private — this repo is rates-only by design.
 
 ## How to run
 
 ```bash
 pip install -r requirements.txt
-python import_to_sqlite.py     # builds data/youtube.db from the synthetic sample
+python import_to_sqlite.py     # builds the SQLite database from the synthetic sample
 python run_queries.py          # prints all 11 query results (rates only)
 # optional notebook (needs jupyter): pip install -r requirements-dev.txt && jupyter notebook analysis.ipynb
 ```
