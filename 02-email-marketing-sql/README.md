@@ -10,7 +10,7 @@
 ## Problem
 
 Email marketing teams live and die by a handful of recurring questions, and the
-answers all sit in the same place — the send and engagement logs:
+answers all sit in the same place - the send and engagement logs:
 
 - **Performance:** which campaigns got opened and clicked, and which flopped?
 - **Acquisition quality:** which sources (Webinar, Referral, Paid Social, …)
@@ -22,7 +22,7 @@ answers all sit in the same place — the send and engagement logs:
 - **Growth:** how fast is the list actually growing?
 
 These are SQL questions. This project answers them with a small, readable query
-library against a realistic (but synthetic) email database — the kind of thing an
+library against a realistic (but synthetic) email database. The kind of thing an
 analyst would hand a marketing manager.
 
 ## Data
