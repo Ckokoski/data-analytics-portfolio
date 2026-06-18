@@ -1,4 +1,4 @@
-# Bonus — Excel Pivot Automation Engine
+# Excel Pivot Automation Engine
 
 > Turn a raw multi-channel campaign CSV into a formatted, multi-sheet Excel report in seconds. **Python + pandas + openpyxl.**
 
