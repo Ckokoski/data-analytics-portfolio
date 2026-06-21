@@ -22,9 +22,9 @@ Hands-on data-analysis projects in **SQL, Power BI, and Python**.
 | 04 | [Excel Pivot Engine (Python)](04-excel-pivot-engine/) | A CLI that turns a raw campaign CSV into a formatted, multi-sheet Excel report: ROAS by channel, conversion by segment, month-over-month trend, KPI summary |
 | 05 | [Data Quality Toolkit (Python)](05-data-quality-toolkit/) | A CLI that audits any CSV — null rates, duplicate keys, type inconsistencies, out-of-range values — and returns a "fit for analysis?" verdict |
 
-## How it was built
+## Data and methods
 
-These projects were built with an AI-assisted workflow: I set the questions, make the analytical calls, and own the conclusions; AI helps me move faster on the scaffolding, code, and first drafts. Every dataset here is **public** (sourced and licensed) or **clearly-labeled synthetic** — except the Channel Analytics project, which uses real performance data reported in **rates and percentages only** (no raw audience counts).
+Every dataset here is **public** (sourced and licensed) or **clearly-labeled synthetic**, except the Channel Analytics project, which uses real performance data reported in **rates and percentages only** (no raw audience counts).
 
 ## Links
 
